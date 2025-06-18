@@ -10,7 +10,7 @@ Vehicle* ParkingSpot::getVehicle() const { return vehicle; }
 bool ParkingSpot::isAvailable() const { return available; }
 
 bool ParkingSpot::canFitVehicle(const Vehicle* vehilce) const {
-    if (!vehilce) return false; 
+    if (!vehicle) return false; 
 
     switch (vehicle->getType()){ 
         case VehicleType::MOTORCYCLE: return true;
