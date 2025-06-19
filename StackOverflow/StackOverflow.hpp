@@ -26,12 +26,12 @@ class StackOverflow{
 
         // Post Managemet 
         Post* addQuestion(const std::string& userId, const std::string& content,
-                        const std::vector<std::string>);
+                        const std::vector<std::string>& tags);
         
         Post* addAnswer(const std::string& userId, const std::string& postId, 
                         const std::string& content);
         
-        Comment* addComment(const std::string& userId, const std::string postId, 
+        Comment* addComment(const std::string& userId, const std::string& postId, 
                         const std::string& content);
 
         // voting and Acceptance
@@ -41,7 +41,7 @@ class StackOverflow{
 
         // search and display
         std::vector<Post* > searchQuestions(const std::string& tag) const; 
-        void displayUserProfiles(const std::string& userId) const; 
+        void displayUserProfile(const std::string& userId) const; 
         void displayQuestion(const std::string& questionId) const; 
         void displayAllQuestions() const; 
 
