@@ -120,6 +120,19 @@ void StackOverflow::displayUserProfile(const std::string& userId) const {
     }
 }
 
+void StackOverflow::displayQuestion(const std::string& questionId) const {
+    Post* question = findPost(questionId); 
+
+    if (!question || question->getType() != PostType::QUESTION) return; 
+
+    question->displayInfo(); 
+
+    std::cout<< "\nAnswers: "<<std::endl; 
+    for (const auto& post: posts){
+        if(post->getType() == PostType::ANSWER) post->displayInfo(); 
+    }
+}
+
 void StackOverflow::displayAllQuestions() const {
     std::cout<< "All Questions: " << std::endl; 
     for (const auto& post: posts){

@@ -11,7 +11,7 @@ int main(){
     User* user3 = stackoverflow.registerUser("Rushil", "rushil@gmail.com");
 
     std::cout<< "Initial Users: " << std::endl; 
-    stackoverflow.displayUserProfiles(user1->getUserId());
+    stackoverflow.displayUserProfile(user1->getUserId());
 
     // Adding questions 
     std::vector<std::string> tags = {"C++", "programming"};
@@ -54,8 +54,8 @@ int main(){
     stackoverflow.displayQuestion(question1->getPostId());
 
     std::cout<< "\nUser Profiles after activity: "<< std::endl;
-    stackoverflow.displayUserProfiles(user1->getUserId());
-    stackoverflow.displayUserProfiles(user2->getUserId());
+    stackoverflow.displayUserProfile(user1->getUserId());
+    stackoverflow.displayUserProfile(user2->getUserId());
 
     // Search Questions 
     std::cout<< "\nSearching for C++ questions" << std::endl;
