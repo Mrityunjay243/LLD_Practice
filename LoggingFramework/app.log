@@ -1,0 +1,5 @@
+[2025-06-27 16:54:47] [INFO][App]Applicaition Started
+[2025-06-27 16:54:47] [WARN][App]This is a warning message
+[2025-06-27 16:54:47] [ERROR][App]This is an error message
+[2025-06-27 16:54:47] [FATAL][App]Fata error: application shutting down
+[2025-06-27 16:54:47] [DEBUG][App]Now debugged messages would be logged
