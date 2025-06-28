@@ -7,12 +7,15 @@
 
 class Intersection {
     private: 
-        std::string IntersectionId; 
+        std::string intersectionId; 
         std::vector<Signal*> signals; 
         bool isOperational; 
 
     public: 
         Intersection(std::string intersectionId); 
+        ~Intersection(); 
+
+        std::string getIntersectionId() const; 
         bool isWorking() const; 
 
         void addSignal(Signal* signal); 
