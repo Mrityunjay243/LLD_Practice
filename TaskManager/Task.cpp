@@ -40,7 +40,7 @@ void Task::addDependency(const std::string& taskId){
     }
 }
 
-void Task::addComment(const std::string& comment){
+void Task::removeDependency(const std::string& taskId){
     auto it = std::find(dependencies.begin(), dependencies.end(), taskId); 
     if (it != dependencies.end()){
         dependencies.erase(it); 
