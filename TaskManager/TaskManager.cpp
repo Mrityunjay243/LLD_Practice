@@ -59,6 +59,23 @@ void TaskManager::removeTask(const std::string& taskId){
     }
 }
 
+bool TaskManager::assignTask(const std::string& taskId, const std::string& userId){
+    Task* task = findTask(taskId); 
+    User* user = findUser(userId); 
+
+    if (!task || !user) return false; 
+
+    if (!task->getAssignedTo().empty()){
+        if (User* prevUser = findUser(task->getAssignedTo())){
+            prevUser->removeTask(taskId); 
+        }
+    }
+
+    task->setAssingedTo(userId); 
+    user->addTask(taskId); 
+    return true; 
+}
+
 bool TaskManager::updateTask(const std::string& taskId, TaskStatus status){
     Task* task = findTask(taskId); 
     if (!task) return false; 
