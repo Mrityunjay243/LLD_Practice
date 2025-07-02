@@ -73,6 +73,12 @@ void PubSubSystem::displaySubscribers() const {
     }
 }
 
+void PubSubSystem::displaySubscriberMessages(const std::string& subscribeId) const {
+    if (Subscriber* subscriber = findSubscriber(subscribeId)){
+        subscriber->displayMessages(); 
+    }
+}
+
 Topic* PubSubSystem::findTopic(const std::string& topicName) const {
     auto it = std::find_if(topics.begin(), topics.end(), 
             [topicName] (Topic* topic) { return topic->getName() == topicName; }); 
