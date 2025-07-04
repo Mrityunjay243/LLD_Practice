@@ -18,11 +18,11 @@ class Subscriber {
         std::string getId() const; 
         std::string getName() const; 
         bool isActive() const; 
-        const std::vector<Message>& getMessage() const; 
+        const std::vector<Message>& getMessageQueue() const; 
 
         void receiveMessage(const Message& message); 
-        void displayMessage() const; 
-        void clearMessage(); 
+        void displayMessages() const; 
+        void clearMessages(); 
         void setActive(bool status); 
         void displayInfo() const; 
 };

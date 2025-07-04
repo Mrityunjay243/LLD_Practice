@@ -10,7 +10,7 @@ class PubSubSystem{
     private: 
         std::vector<Topic*> topics; 
         std::vector<Subscriber*> subscribers; 
-        int subscriberCounter; 
+        int subscriberIdCounter; 
 
     public:
         PubSubSystem(); 
@@ -28,7 +28,7 @@ class PubSubSystem{
 
         void displayInfo() const; 
         void displaySubscribers() const; 
-        void displaySubscriberMessager(const std::string& subscriberId) const;
+        void displaySubscriberMessages(const std::string& subscriberId) const;
         
     private:
         Topic* findTopic(const std::string& topicName) const; 

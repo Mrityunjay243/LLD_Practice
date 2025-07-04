@@ -46,7 +46,27 @@ void PubSubSystem::removeSubscriber(const std::string& subscriberId){
         delete *it; 
         subscribers.erase(it); 
     }
-} 
+}
+
+bool PubSubSystem::subscribe(const std::string& subscriberId, const std::string& topicName) {
+    Topic* topic = findTopic(topicName); 
+    Subscriber* subscriber = findSubscriber(subscriberId); 
+
+    if (!topic || !subscriber) return false; 
+
+    topic->addSubscriber(subscriber); 
+    return true; 
+}
+
+bool PubSubSystem::unsubscribe(const std::string& subscriberId, const std::string& topicName) {
+    Topic* topic = findTopic(topicName); 
+    
+    if (!topic) return false; 
+
+    topic->removeSubscriber(subscriberId); 
+    return true; 
+}
+
 
 bool PubSubSystem::publish(const std::string& topicName, const std::string& content){
     Topic* topic = findTopic(topicName); 
@@ -57,7 +77,7 @@ bool PubSubSystem::publish(const std::string& topicName, const std::string& cont
     return true; 
 }
 
-void PubSubSystem::displayTopics() const {
+void PubSubSystem::displayInfo() const {
     std::cout<< "\nAvailable Topics: " << std::endl; 
     for (const auto& topic: topics){
         topic->displayInfo(); 
@@ -96,7 +116,3 @@ Subscriber* PubSubSystem::findSubscriber(const std::string& subscriberId) const 
 std::string PubSubSystem::generateSubsciberId() {
     return "SUB" + std::to_string(subscriberIdCounter++); 
 }
-
-
-
-

@@ -14,7 +14,7 @@ int main() {
     Topic* weather = system.createTopic("Weather", "Weather updates"); 
 
     std::cout << "Initial Topics: "; 
-    system.displayTopics(); 
+    system.displayInfo(); 
 
     Subscriber* sub1 = system.addSubscriber("Mj"); 
     Subscriber* sub2 = system.addSubscriber("Mj2");
