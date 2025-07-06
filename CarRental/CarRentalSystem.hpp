@@ -8,13 +8,13 @@
 #include "Customer.hpp"
 
 class CarRentalSystem{
-    public:
+    private:
         std::vector<Car*> cars; 
         std::vector<Customer*> customers; 
         std::vector<Rental*> rentals; 
         int rentalIdCounter; 
 
-    private:
+    public:
         CarRentalSystem(); 
         ~CarRentalSystem(); 
 

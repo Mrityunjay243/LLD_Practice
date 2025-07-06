@@ -10,7 +10,7 @@ class Customer{
         std::string contactNumber; 
 
     public:
-        Customer(std::string& customerId, std::string name, std::string contactNumber); 
+        Customer(std::string customerId, std::string name, std::string contactNumber); 
 
         std::string getCustomerId() const; 
         std::string getCustomerName() const; 

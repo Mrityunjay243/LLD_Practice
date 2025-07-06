@@ -41,6 +41,8 @@ bool CarRentalSystem::returnCar(std::string rentalId){
         delete rental; 
         return true;  
     }
+
+    return false; 
 }
 
 void CarRentalSystem::displayAvailableCars() const {
@@ -50,6 +52,22 @@ void CarRentalSystem::displayAvailableCars() const {
         std::cout<< "--------------------"; 
     }
 }
+
+void CarRentalSystem::displayRentals() const {
+    std::cout << "\nCurrent rentals: " << std::endl; 
+    for (const auto& rental: rentals) {
+        rental->displayInfo(); 
+        std::cout << "--------------------";
+    }
+}
+void CarRentalSystem::displayCustomers() const {
+    std::cout<< "\nCurrent Customers: " << std::endl; 
+    for (const auto& customer: customers){
+        customer->displayInfo(); 
+        std::cout<< "--------------------" ;
+    }
+}
+
 
 Car* CarRentalSystem::findCar(std::string carId) const {
     for (auto car: cars){
