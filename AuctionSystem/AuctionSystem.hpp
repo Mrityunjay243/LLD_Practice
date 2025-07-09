@@ -28,14 +28,23 @@ class AuctionSystem{
         bool placeBid(std::string auctionId, std::string bidderId, double amount); 
         bool addUserBalance(std::string userId, double amount); 
         void startAuction(std::string auctionId); 
+        void endAuction(std::string auctionId); 
         void cancelAuction(std::string auctionId); 
 
         std::vector<Auction*> getActiveAuctions() const; 
-        std::vector<Item*> searchItems() const; 
+        std::vector<Item*> searchItems(const std::string& query) const; 
 
         void displayUserInfo(std::string userId) const; 
         void displayItemInfo(std::string itemId) const; 
         void displayAuctionInfo(std::string auctionId) const; 
+        void displayAllAuctions() const; 
+        std::string generateItemId(); 
+        std::string generateAuctionId(); 
+
+    private:
+        User* findUser(const std::string& userId) const; 
+        Item* findItem(const std::string& itemId) const; 
+        Auction* findAuction(const std::string& auctionId) const; 
         std::string generateItemId(); 
         std::string generateAuctionId(); 
 };
