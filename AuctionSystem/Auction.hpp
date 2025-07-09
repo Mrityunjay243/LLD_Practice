@@ -51,7 +51,7 @@ class Auction{
         void start(); 
         void end(); 
         void cancel(); 
-        void isActive() const; 
+        bool isActive() const; 
         void displayInfo() const; 
 }; 
 
