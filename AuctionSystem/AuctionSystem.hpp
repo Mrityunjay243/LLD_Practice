@@ -44,9 +44,7 @@ class AuctionSystem{
     private:
         User* findUser(const std::string& userId) const; 
         Item* findItem(const std::string& itemId) const; 
-        Auction* findAuction(const std::string& auctionId) const; 
-        std::string generateItemId(); 
-        std::string generateAuctionId(); 
+        Auction* findAuction(const std::string& auctionId) const;  
 };
 
 #endif

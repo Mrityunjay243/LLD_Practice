@@ -124,6 +124,7 @@ void AuctionSystem::displayAllAuctions() const {
 User* AuctionSystem::findUser(const std::string& userId) const {
     auto it = std::find_if(users.begin(), users.end(), 
                 [&userId](User* user){
+                    return user->getUserId() == userId; 
                 }); 
     return it!=users.end()? *it: nullptr; 
 }
@@ -137,7 +138,7 @@ Item* AuctionSystem::findItem(const std::string& itemId) const {
 
 Auction* AuctionSystem::findAuction(const std::string& auctionId) const {
     auto it = std::find_if(auctions.begin(), auctions.end(), [auctionId](Auction* auction){
-        auction->getAuctionId() == auctionId; 
+        return auction->getAuctionId() == auctionId; 
     }); 
 
     return it!=auctions.end()? *it: nullptr;
