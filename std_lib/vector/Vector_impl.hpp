@@ -1,3 +1,6 @@
+#ifndef VECTOR_IMPL_HPP
+#define VECTOR_IMPL_HPP
+
 #include "Vector.hpp"
 #include <algorithm>
 #include <iostream>
@@ -22,7 +25,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& other){
         delete[] data; 
         sz = other.sz; 
         capacity = other.capacity; 
-        data = new T[cap]; 
+        data = new T[capacity]; 
         std::copy(other.data, other.data+sz, data); 
     }
 
@@ -38,13 +41,13 @@ void Vector<T>::reallocate(size_t newCap){
 
     delete[] data; 
     data = newData; 
-    cap = newCap; 
+    capacity = newCap; 
 }
 
 template <typename T>
 void Vector<T>::p_b(const T& value){
-    if (sx == capacity){
-        reallocate(cap==0? 1 : cap*2); 
+    if (sz == capacity){
+        reallocate(capacity==0? 1 : capacity*2); 
     }
     data[sz++] = value; 
 }
@@ -102,3 +105,5 @@ void Vector<T>::resize(size_t newSize, const T& defaultValue){
 
     sz = newSize; 
 }
+
+#endif
