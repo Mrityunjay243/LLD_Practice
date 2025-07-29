@@ -27,7 +27,7 @@ class Vector{
         const T& operator[](size_t index) const; 
 
         size_t size() const; 
-        size_t capacity() const; 
+        size_t cap() const; 
         bool empty() const; 
 
         void reserve(size_t newCap); 

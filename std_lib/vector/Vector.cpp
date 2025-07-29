@@ -74,7 +74,7 @@ size_t Vector<T>::size() const{
 }
 
 template <typename T>
-size_t Vector<T>::capacity() const {
+size_t Vector<T>::cap() const {
     return capacity; 
 }
 
