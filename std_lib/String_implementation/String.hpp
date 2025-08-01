@@ -16,10 +16,10 @@ class String {
 
         String(); 
         String(const char* str); 
-        String(String& other) noexcept; 
+        String(String& other); 
         String(String&& other) noexcept; 
         String& operator=(const String& other); // copy assign
-        String& operator=(const String&& other); // move assign
+        String& operator=(String&& other); // move assign
         ~String(); 
 
         char& operator[](size_t index); 
@@ -28,10 +28,10 @@ class String {
         void push_back(char c); 
         String& operator+=(const String& other); 
 
-        size_t size(); 
-        size_t length(); 
-        size_t capacity(); 
-        const char* c_str(); 
+        size_t size() const; 
+        size_t length() const; 
+        size_t cap() const; 
+        const char* c_str() const; 
         void clear(); 
 
         bool operator==(const String& other) const; 
