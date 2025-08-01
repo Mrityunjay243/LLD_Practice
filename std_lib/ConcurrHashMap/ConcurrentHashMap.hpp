@@ -13,7 +13,7 @@ class ConcurrentHashMap{
     private:
         struct Bucket{
             std::list<std::pair<K, V>> data; 
-            mutable st::mutex mtx; 
+            mutable std::mutex mtx; 
         };
 
         std::vector<Bucket> buckets; 
@@ -41,10 +41,10 @@ class ConcurrentHashMap{
         }
 
         std::optional<V> get(const K& key){
-            Bucket& bucket = get_bucket(key); 
+            Bucket& bucket = getBucket(key); 
             std::lock_guard<std::mutex> lock(bucket.mtx);
             
-            for (const auto& [k, v]: bucket){
+            for (const auto& [k, v]: bucket.data){
                 if (k==key){
                     return v; 
                 }
