@@ -68,7 +68,7 @@ class SharedPtr{
             return *ptr; 
         }
 
-        T& operator->() const {
+        T* operator->() const {
             return ptr; 
         }
 
