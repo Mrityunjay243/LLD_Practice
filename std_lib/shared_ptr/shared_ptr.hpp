@@ -27,7 +27,7 @@ class SharedPtr{
         explicit SharedPtr(T* p): ptr(p), count(new std::size_t(1)) {} 
 
         // Copy constructor
-        SharedPtr(SharedPtr<T>& other) noexcept : ptr(other), count(other.count){
+        SharedPtr(SharedPtr<T>& other) noexcept : ptr(other.ptr), count(other.count){
             if (count) ++(*count); 
         }
 
