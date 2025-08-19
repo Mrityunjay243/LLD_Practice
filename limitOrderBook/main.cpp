@@ -224,7 +224,7 @@ private:
 
 public:
     Trades AddOrder(OrderPointer order){
-        if (orders_.contains(order->GetOrderId())) return {}; 
+        if (orders_.find(order->GetOrderId())!=orders_.end()) return {}; 
         if (order->GetOrderType()==OrderType::FillAndKill && !CanMatch(order->GetSide(), order->GetPrice())) return {}; 
 
         OrderPointers::iterator iterator; 
@@ -244,7 +244,7 @@ public:
     }
 
     void CancelOrder(OrderId orderId){
-        if (!orders_.contains(orderId)) return; 
+        if (orders_.find(orderId)!=orders_.end()) return; 
 
         const auto& [order, orderIterator] = orders_.at(orderId); 
         orders_.erase(orderId); 
@@ -258,7 +258,7 @@ public:
     }
 
     Trades MatchOrder(OrderModify order){
-        if (!orders_.contains(order.GetOrderId())){
+        if (orders_.find(order.GetOrderId())!=orders_.end()){
             return {}; 
         }
 
