@@ -43,6 +43,15 @@ public:
         remainingquantity_ -= quantity; 
     }
 
+    void ToGoodTillCancel(Price price){
+        if (GetOrderType()!=OrderType::Market){
+            throw std::logic_error("cannot have it's price adjusted, only market orders can");
+        }
+
+        price_ = price; 
+        ordertype_ = OrderType::GoodTillCancel;
+    }
+
 private:
     OrderType ordertype_; 
     OrderId orderid_; 
