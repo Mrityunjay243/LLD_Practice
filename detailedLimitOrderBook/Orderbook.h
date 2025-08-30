@@ -51,7 +51,7 @@ private:
     void UpdateLevelData(Price price, Quantity quantity, LevelData::Action action); 
 
     bool CanFullyFill(Side side, Price price, Quantity quantity) const; 
-    bool CanMatch(Side side, Price price, Quantity quantity) const; 
+    bool CanMatch(Side side, Price price) const; 
     Trades MatchOrders(); 
 
 public:
